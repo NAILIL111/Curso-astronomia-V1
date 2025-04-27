@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>C:\Users\Lilian.Bornio\Downloads\Image (2).jpg</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: url(https://concepto.de/wp-content/uploads/2019/04/Nebulosa-de-Orion-e1554813166944.jpg) no-repeat center center fixed;
+      background-size: cover;
+    }
+    .bg-overlay {
+      background-color: rgba(0, 0, 0, 0.7);
+    }
+  </style>
+</head>
+<body class="text-white">
+  <!-- Portada -->
+  <section class="min-h-screen flex flex-col justify-center items-center bg-overlay">
+    <h1 class="text-4xl md:text-6xl font-bold mb-4">El Cosmos de Fernando Correa</h1>
+    <p class="text-xl md:text-2xl mb-8">ENCUENTRAS LO QUE BUSCAS PARA QUE TE ENCUENTRES A TI MISMO</p>
+  </section>
+
+  <!-- Lista de Cursos -->
+  <section class="py-12 px-6 bg-gradient-to-b from-black to-indigo-900">
+    <h2 class="text-3xl font-semibold text-center mb-10">Cursos Disponibles</h2>
+    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div class="bg-gray-800 p-6 rounded-2xl shadow-lg hover:scale-105 transition">
+        <h3 class="text-2xl font-bold mb-2">Introducción a la Astronomía</h3>
+        <p class="mb-2">Explora los conceptos básicos del universo.</p>
+        <p>Modalidad: Online</p>
+        <p>Duración: 4 semanas</p>
+      </div>
+      <div class="bg-gray-800 p-6 rounded-2xl shadow-lg hover:scale-105 transition">
+        <h3 class="text-2xl font-bold mb-2">Observación de Estrellas y Planetas</h3>
+        <p class="mb-2">Aprende técnicas de observación astronómica.</p>
+        <p>Modalidad: Presencial</p>
+        <p>Duración: 6 semanas</p>
+      </div>
+      <div class="bg-gray-800 p-6 rounded-2xl shadow-lg hover:scale-105 transition">
+        <h3 class="text-2xl font-bold mb-2">Astrofotografía para Principiantes</h3>
+        <p class="mb-2">Captura la belleza del espacio con tu cámara.</p>
+        <p>Modalidad: Online</p>
+        <p>Duración: 5 semanas</p>
+      </div>
+      <div class="bg-gray-800 p-6 rounded-2xl shadow-lg hover:scale-105 transition">
+        <h3 class="text-2xl font-bold mb-2">Cosmología Moderna</h3>
+        <p class="mb-2">Explora la estructura y origen del universo.</p>
+        <p>Modalidad: Online</p>
+        <p>Duración: 8 semanas</p>
+      </div>
+      <div class="bg-gray-800 p-6 rounded-2xl shadow-lg hover:scale-105 transition">
+        <h3 class="text-2xl font-bold mb-2">Física de Agujeros Negros</h3>
+        <p class="mb-2">Adéntrate en los misterios de los agujeros negros.</p>
+        <p>Modalidad: Presencial</p>
+        <p>Duración: 6 semanas</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Formulario de Inscripción -->
+  <section class="py-12 px-6 bg-black">
+    <h2 class="text-3xl font-semibold text-center mb-10">Formulario de Inscripción</h2>
+    <form id="registrationForm" class="max-w-3xl mx-auto bg-gray-800 p-8 rounded-2xl shadow-lg space-y-4">
+      <input type="text" id="name" placeholder="Nombre completo" class="w-full p-3 rounded-lg bg-gray-700" required>
+      <input type="number" id="age" placeholder="Edad" class="w-full p-3 rounded-lg bg-gray-700" required>
+      <input type="email" id="email" placeholder="Correo electrónico" class="w-full p-3 rounded-lg bg-gray-700" required>
+      <input type="text" id="phone" placeholder="Número de teléfono" class="w-full p-3 rounded-lg bg-gray-700" required>
+
+      <select id="course" class="w-full p-3 rounded-lg bg-gray-700" required>
+        <option value="">Selecciona un curso</option>
+        <option>Introducción a la Astronomía</option>
+        <option>Observación de Estrellas y Planetas</option>
+        <option>Astrofotografía para Principiantes</option>
+        <option>Cosmología Moderna</option>
+        <option>Física de Agujeros Negros</option>
+      </select>
+
+      <div class="flex items-center space-x-4">
+        <label><input type="radio" name="modality" value="Presencial" required> Presencial</label>
+        <label><input type="radio" name="modality" value="Online" required> Online</label>
+      </div>
+
+      <textarea id="comments" rows="3" placeholder="Comentarios adicionales" class="w-full p-3 rounded-lg bg-gray-700"></textarea>
+
+      <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 p-3 rounded-lg font-semibold">Inscribirme</button>
+    </form>
+
+    <div id="confirmationMessage" class="hidden mt-10 max-w-2xl mx-auto p-6 bg-green-600 rounded-2xl text-center text-xl font-semibold">
+      ¡Te has inscrito exitosamente!
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-6 text-center bg-gray-900">
+    <p>© <span id="year"></span> El Cosmos de Fernando Correa. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    // Mostrar año dinámico
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Validación del formulario
+    document.getElementById('registrationForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const name = document.getElementById('name').value.trim();
+      const age = document.getElementById('age').value;
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const course = document.getElementById('course').value;
+      const modality = document.querySelector('input[name="modality"]:checked');
+
+      if (!name || !age || !email || !phone || !course || !modality) {
+        alert('Por favor, completa todos los campos requeridos.');
+        return;
+      }
+
+      document.getElementById('registrationForm').classList.add('hidden');
+      document.getElementById('confirmationMessage').classList.remove('hidden');
+    });
+  </script>
+</body>
+</html>
